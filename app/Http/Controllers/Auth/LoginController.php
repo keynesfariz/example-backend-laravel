@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,10 +18,6 @@ class LoginController extends Controller
             abort(401, 'User not found');
         }
 
-        return Auth::user()->only([
-            'id',
-            'name',
-            'email',
-        ]);
+        return Auth::user();
     }
 }
